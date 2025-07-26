@@ -1,6 +1,6 @@
-```markdown
-# 🎲 Flask Dice Roller App with History (Python Backend)
 
+# 🎲 Flask Dice Roller App with History (Python Backend)
+```markdown
 A simple and interactive **dice rolling web app** built using **Flask (Python)**. Users can roll up to 10 dice at a time, see visual dice results, view roll history, and remove history as needed — all powered without JavaScript!
 
 ---
@@ -79,9 +79,9 @@ You can enhance the app by adding:
 
 ---
 ## 🙌 Contributions
-
+```
 Feel free to fork, suggest improvements, or add features! All contributions are welcome.
-
+```
 ---
 
 ## 📄 License
