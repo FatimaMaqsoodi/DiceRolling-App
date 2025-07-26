@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dice Roller</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🎲 Dice Roller Simulator</h1>
+
+    <form method="post">
+      <label for="num_dice">How many dice to roll?</label>
+      <input type="number" name="num_dice" min="1" max="10" required>
+      <button type="submit">Roll</button>
+    </form>
+
+    <!-- Error message if any -->
+    {% if error %}
+      <p style="color: rgb(208, 19, 19); font-weight: bold; margin-top: 10px;">⚠️ {{ error }}</p>
+    {% endif %}
+
+    {% if results %}
+    <h3>Current Roll:</h3>
+    <div class="dice-container">
+      {% for die in results %}
+        <div class="die animate">{{ die }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <p>You have rolled the dice <strong>{{ count }}</strong> time(s) this session.</p>
+
+    {% if history %}
+      <h3>Dice-Rolled History:</h3>
+      <div class="history">
+        {% for roll in history %}
+          <div class="history-entry">Roll {{ loop.index }}:
+            {% for d in roll %}
+              <span class="history-die">{{ d }}</span>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <a href="{{ url_for('reset') }}" class="reset-btn">Reset Counter & History</a>
+  </div>
+</body>
+</html>
